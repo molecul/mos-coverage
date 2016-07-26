@@ -5,21 +5,14 @@
 Setup
 -----
 
-First, you need to create a virtual environment on Fuel master and activate it.
+First, you need make ssh to Fuel master and install application.
 
 ::
 
-  $ pip install virtualenv
-  $ virtualenv .venv
-  $ . .venv/bin/activate
-  (.venv)$
-
-Next, install application into the virtual environment.
-
-::
-
-  (.venv)$ pip install -r requirements.txt
-  (.venv)$ python setup.py install
+  $ easy_install pip
+  $ yum -y install git
+  $ pip install git+https://github.com/molecul/mos-coverage.git
+  $
 
 Usage
 -----
@@ -28,11 +21,4 @@ With mos-coverage setup up, you can now use it.
 
 To see a list of commands available, run::
 
-  (.venv)$ moscov --help
-
-Cleaning Up
------------
-
-Finally, when done, deactivate your virtual environment::
-
-  (.venv)$ deactivate
+  $ moscov --help
