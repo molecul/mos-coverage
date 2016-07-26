@@ -12,7 +12,6 @@ First, you need make ssh to Fuel master and install application.
   $ easy_install pip
   $ yum -y install git
   $ pip install git+https://github.com/molecul/mos-coverage.git
-  $
 
 Usage
 -----
