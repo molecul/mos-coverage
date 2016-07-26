@@ -1,11 +1,11 @@
 =================
- MOS collect coverage tool
+ Collect coverage tool for MOS 9.x
 =================
 
 Setup
 -----
 
-First, you need to create a virtual environment and activate it.
+First, you need to create a virtual environment on Fuel master and activate it.
 
 ::
 
@@ -36,4 +36,3 @@ Cleaning Up
 Finally, when done, deactivate your virtual environment::
 
   (.venv)$ deactivate
-  $
