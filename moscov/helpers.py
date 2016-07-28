@@ -1,5 +1,6 @@
 import fuelclient
 import subprocess
+import json
 
 
 def _get_command_output(cmd):
@@ -17,9 +18,9 @@ def get_nodes(env=0):
     result = {}
     for node in nodes:
         if (env > 0) and (node['cluster'] == env):
-            result[node['ip']] = node['roles']
+            result[node['id']] = node['roles']
         else:
-            result[node['ip']] = node['roles']
+            result[node['id']] = node['roles']
     return result
 
 
@@ -33,5 +34,11 @@ def get_envs():
 
 
 def run_command_on_node(node, command):
-    return _get_command_output("ssh -o LogLevel=quiet %s '%s'" % (node,
-                                                                  command))
+    result = _get_command_output(
+        "mco rpc --agent execute_shell_command --action execute "
+        "--argument cmd='%s' -I %s -j" % (command, node))
+    return json.loads(result)[0]
+
+
+def run_coverage(nodes, component):
+    pass
